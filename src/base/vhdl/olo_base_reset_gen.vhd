@@ -70,6 +70,12 @@ architecture struct of olo_base_reset_gen is
     attribute syn_preserve of DsSync : signal is SynPreserve_SuppressChanges_c;
     attribute syn_keep of DsSync     : signal is SynKeep_SuppressChanges_c;
 
+    -- Synthesis attributes - Preserve signal for RstSync, so Efinity does not rename the last register...
+    attribute dont_merge of RstSync   : signal is DontMerge_SuppressChanges_c;
+    attribute preserve of RstSync     : signal is Preserve_SuppressChanges_c;
+    attribute syn_preserve of RstSync : signal is SynPreserve_SuppressChanges_c;
+    attribute syn_keep of RstSync     : signal is SynKeep_SuppressChanges_c;
+
     -- Synthesis attributes - asynchronous register
     attribute async_reg of DsSync : signal is AsyncReg_TreatAsync_c;
 
